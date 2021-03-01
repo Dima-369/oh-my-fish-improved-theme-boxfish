@@ -8,8 +8,6 @@ function parse_git_dirty
     set git_dirty (command git status --porcelain $submodule_syntax $untracked_syntax 2> /dev/null)
     if [ -n "$git_dirty" ]
         echo -n "dirty"
-    else
-        echo -n ""
     end
 end
 
@@ -25,18 +23,19 @@ function prompt_git -d "Display the current git state"
         end
         set branch_symbol \uE0A0
         set -l branch (echo $ref | sed  "s-refs/heads/-$branch_symbol -")
+        
         # there is a question mark at the start for some reason
         set -l branch (string sub --start=2 $branch)
         set -l branch (string trim $branch)
+        
         if [ "$dirty" != "" ]
             set_color black -b yellow
-            echo -n " $branch "
         else
             set_color black -b green
-            echo -n " $branch "
         end
+        
+        echo -n " $branch "
     end
-    set_color normal
 end
 
 function fish_prompt
