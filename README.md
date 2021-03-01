@@ -1,2 +1,8 @@
-# oh-my-fish-improve-boxfish-theme
-Fixes that detached HEADs are not shown correctly
+Hacky solution:
+
+```bash
+omf install boxfish
+omf theme boxfish
+```
+
+Replace `/Users/Gira/.local/share/omf/themes/boxfish/fish_prompt.fish` with this file.
