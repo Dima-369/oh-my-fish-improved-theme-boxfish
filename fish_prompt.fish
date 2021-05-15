@@ -58,5 +58,6 @@ function fish_prompt
     end
 
     set_color normal
-    echo -n ' '
+    # newline added for vterm
+    echo -n '\n'
 end
